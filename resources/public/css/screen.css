@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.board {
+  float: left;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.cell {
+  border: 1px solid black;
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.cell:last-child {
+  margin-right: 0;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.row:after {
+  content: "";
+  display: block;
+  clear: both;
+}
