@@ -1,16 +1,27 @@
 @import "reset";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-$board-padding: 10px;
-$cell-size: 100px;
+$board-color: #bbb;
+$board-padding: 15px;
+$board-rounding: 5px;
+$cell-size: 90px;
+$cell-rounding: 3px;
+$cell-color: #eee;
+
+@mixin rounded($radius: 0.5em) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
 
 * {
-  margin: 0;
-  padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .board {
+  @include rounded($board-rounding);
+  background-color: $board-color;
   float: left;
-  border: 1px solid black;
   margin: $board-padding;
   padding: $board-padding;
 }
@@ -20,12 +31,16 @@ $cell-size: 100px;
 }
 
 .cell {
-  border: 1px solid black;
+  @include rounded($cell-rounding);
+  background-color: $cell-color;
   display: block;
   float: left;
   height: $cell-size;
   width: $cell-size;
   line-height: $cell-size;
+  font-size: $cell-size - (4 * $board-padding);
+  font-weight: bolder;
+  color: darken($board-color, 30%);
   margin-right: $board-padding;
   text-align: center;
 }
