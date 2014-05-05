@@ -3,21 +3,10 @@
   (:require [goog.events :as events]
             [cljs.core.async :refer [put! <! >! chan timeout]]
             [om.core :as om :include-macros true]
-            [om.dom :as dom :include-macros true]))
+            [om.dom :as dom :include-macros true]
+            [tfe.core :refer [next-state next-board app-state]]))
 
 (enable-console-print!)
-
-(def app-state (atom {:state :playing
-                      :board [[nil nil nil nil]
-                              [nil nil nil   2]
-                              [nil nil nil   2]
-                              [nil nil nil nil]]}))
-
-(defn next-board [direction board]
-  (vec (apply map vector board)))
-
-(defn next-state [board]
-  :playing)
 
 (defn next-game [direction game]
   (let [board (:board game)
