@@ -7,11 +7,20 @@
                  [org.clojure/clojurescript "0.0-2202"]
                  [om "0.5.3"]
                  [org.clojure/core.async "0.1.278.0-76b25b-alpha"]]
-  :plugins [[lein-cljsbuild "1.0.3"]]
+  :plugins [[lein-cljsbuild "1.0.3"] [lein-haml-sass "0.2.7-SNAPSHOT"]]
   :min-lein-version "2.0.0"
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src"]
                         :compiler {:output-to "resources/public/app/main/main.js"
                                    :output-dir "resources/public/app"
                                    :optimizations :none
-                                   :source-map true}}]})
+                                   :source-map true}}]}
+  :scss {:src "resources/scss"
+         :output-directory "resources/public/css"
+         :output-extension "css"
+         ;; Other options (provided are default values)
+         ;; :auto-compile-delay 250
+         ;; :delete-output-dir true ;; -> when running lein clean it will delete the output directory if it does not contain any file
+         ;; :ignore-hooks [:clean :compile :deps] ;; -> if you use the hooks, this option allows you to remove some hooks that you don't want to run
+         ;; :gem-version "3.2.1"
+         })
