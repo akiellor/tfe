@@ -62,7 +62,9 @@
 (defn next-state [board]
   :playing)
 
-(defn next-game [direction game]
+(defmulti next-game (fn [d g] (:state g)))
+
+(defmethod next-game :playing [direction game]
   (let [board (:board game)
         state (:state game)]
     (assoc game
