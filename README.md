@@ -1,10 +1,20 @@
 # tfe
 
-A Clojure library designed to ... well, that part is up to you.
+ClojureScript/OM implementation of 2048
 
 ## Usage
 
-FIXME
+`
+$ lein cljsbuild once
+`
+
+`
+$ lein scss once
+`
+
+`
+$ cd resources/public/ && python -m SimpleHTTPServer 8080 .
+`
 
 ## License
 
