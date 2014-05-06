@@ -33,8 +33,10 @@
   (reify
     om/IRender
     (render [_]
-      (apply dom/div #js {:className "board"}
-        (map board-row (-> app :board))))))
+      (dom/div nil
+        (dom/h1 nil (str (-> app :state)))
+        (apply dom/div #js {:className "board"}
+          (map board-row (-> app :board)))))))
 
 (defn application [app owner]
   (om/build board app))

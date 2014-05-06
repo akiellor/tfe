@@ -60,7 +60,11 @@
   board)
 
 (defn next-state [board]
-  :playing)
+  (let [cells (vec (apply concat board))]
+    (cond
+      (contains? cells 2048) :won
+      (every? number? cells) :lost
+      :else :playing)))
 
 (defmulti next-game (fn [d g] (:state g)))
 
@@ -70,4 +74,10 @@
     (assoc game
            :board (next-board direction board)
            :state (next-state (next-board direction board)))))
+
+(defmethod next-game :won [_ game]
+  game)
+
+(defmethod next-game :lost [_ game]
+  game)
 
