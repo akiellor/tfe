@@ -4,16 +4,9 @@
             [cljs.core.async :refer [put! <! >! chan timeout]]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [tfe.core :refer [next-state next-board app-state]]))
+            [tfe.core :refer [next-game app-state]]))
 
 (enable-console-print!)
-
-(defn next-game [direction game]
-  (let [board (:board game)
-        state (:state game)]
-    (assoc game
-           :board (next-board direction board)
-           :state (next-state (next-board direction board)))))
 
 (defn code->direction [key-code]
   (case key-code

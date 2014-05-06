@@ -2,7 +2,7 @@
 
 (def app-state (atom {:state :playing
                       :board [[nil nil nil nil]
-                              [  2   2   2   2]
+                              [nil nil   2   2]
                               [nil nil nil   2]
                               [nil nil nil nil]]}))
 
@@ -61,3 +61,11 @@
 
 (defn next-state [board]
   :playing)
+
+(defn next-game [direction game]
+  (let [board (:board game)
+        state (:state game)]
+    (assoc game
+           :board (next-board direction board)
+           :state (next-state (next-board direction board)))))
+
