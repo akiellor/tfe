@@ -7,8 +7,9 @@
                  [org.clojure/clojurescript "0.0-2202"]
                  [om "0.5.3"]
                  [org.clojure/core.async "0.1.278.0-76b25b-alpha"]]
-  :plugins [[lein-cljsbuild "1.0.3"] [lein-haml-sass "0.2.7-SNAPSHOT"]]
+  :plugins [[lein-cljsbuild "1.0.3"] [lein-haml-sass "0.2.7-SNAPSHOT"] [com.cemerick/clojurescript.test "0.2.3"]]
   :min-lein-version "2.0.0"
+  :hooks [leiningen.cljsbuild leiningen.scss]
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src"]
                         :compiler {:output-to "resources/public/app/main/main.js"
