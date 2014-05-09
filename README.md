@@ -5,11 +5,7 @@ ClojureScript/OM implementation of 2048
 ## Usage
 
 `
-$ lein cljsbuild once
-`
-
-`
-$ lein scss once
+$ lein compile
 `
 
 `
