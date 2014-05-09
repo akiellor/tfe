@@ -26,6 +26,10 @@ $cell-color: #eee;
   padding: $board-padding;
 }
 
+.board.lost {
+  display: none;
+}
+
 .row:last-child {
   margin-bottom: 0;
 }

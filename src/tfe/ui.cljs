@@ -23,6 +23,12 @@
 
 (events/listen js/document "keyup" (comp println handle-keybindings))
 
+(defn message [state]
+  (case state
+    :won "Congratulations!"
+    :playing "Good Luck"
+    :lost "Oh noes!"))
+
 (defn cell [value]
   (dom/span #js {:className "cell"}  value))
 
@@ -34,8 +40,8 @@
     om/IRender
     (render [_]
       (dom/div nil
-        (dom/h1 nil (str (-> app :state)))
-        (apply dom/div #js {:className "board"}
+        (dom/h1 nil (message (-> app :state)))
+        (apply dom/div #js {:className (str "board " (name (-> app :state)))}
           (map board-row (-> app :board)))))))
 
 (defn application [app owner]
