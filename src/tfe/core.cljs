@@ -32,11 +32,9 @@
 
 (defn place [board]
   (let [index (first (shuffle (filter #(not (get-in board %)) (coordinates))))]
-    (print index)
     (assoc-in board index 2)))
 
 (defn update [board]
-  (print board)
   (let [new-board (pack board)]
     (cond
       (= board new-board) new-board
@@ -59,10 +57,17 @@
 (defmethod next-board nil [_ board]
   board)
 
+(defn move-available? [board]
+  (> (count #{(next-board :left board)
+              (next-board :right board)
+              (next-board :up board)
+              (next-board :down board)}) 1))
+
 (defn next-state [board]
   (let [cells (vec (apply concat board))]
     (cond
       (contains? cells 2048) :won
+      (move-available? board) :playing
       (every? number? cells) :lost
       :else :playing)))
 
