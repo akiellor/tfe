@@ -8,6 +8,12 @@ ClojureScript/OM implementation of 2048 [http://tfe.herokuapp.com](http://tfe.he
 $ lein run 8080
 `
 
+## Running the tests (requires phantomjs installed)
+
+`
+$ lein test
+`
+
 ## License
 
 Copyright © 2014 Andrew Kiellor

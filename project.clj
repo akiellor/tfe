@@ -30,4 +30,5 @@
   :scss {:src "resources/scss"
          :output-directory "resources/public/css"
          :output-extension "css"}
+  :aliases {"test" ["do" "clean," "cljsbuild" "once" "test"]}
   :uberjar-name "tfe-standalone.jar")
