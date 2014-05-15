@@ -3,7 +3,9 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.5.1"]
+  :dependencies [[http-kit "2.1.18"]
+                 [ring/ring-core "1.2.2"]
+                 [org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2202"]
                  [om "0.5.3"]
                  [org.clojure/core.async "0.1.278.0-76b25b-alpha"]]
@@ -24,4 +26,5 @@
          ;; :delete-output-dir true ;; -> when running lein clean it will delete the output directory if it does not contain any file
          ;; :ignore-hooks [:clean :compile :deps] ;; -> if you use the hooks, this option allows you to remove some hooks that you don't want to run
          ;; :gem-version "3.2.1"
-         })
+         }
+  :profiles {:uberjar {:uberjar-name "tfe-standalone.jar" :main tfe.main :aot :all}})
