@@ -4,6 +4,8 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :java-target "1.7"
+  :main tfe.main
+  :aot :all
   :dependencies [[http-kit "2.1.18"]
                  [ring/ring-core "1.2.2"]
                  [org.clojure/clojure "1.5.1"]
@@ -28,5 +30,4 @@
   :scss {:src "resources/scss"
          :output-directory "resources/public/css"
          :output-extension "css"}
-  :uberjar-name "tfe-standalone.jar" 
-  :profiles {:uberjar {:main tfe.main :aot :all}})
+  :uberjar-name "tfe-standalone.jar")
