@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -jar target/tfe-standalone.jar tfe.main $PORT
+web: java $JVM_OPTS -jar target/tfe-standalone.jar $PORT
