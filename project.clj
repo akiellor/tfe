@@ -3,6 +3,7 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :java-target "1.7"
   :dependencies [[http-kit "2.1.18"]
                  [ring/ring-core "1.2.2"]
                  [org.clojure/clojure "1.5.1"]
