@@ -30,7 +30,7 @@
 (defn coordinates []
   (for [x (range 4) y (range 4)] [x y]))
 
-(defn place [board]
+(defn ^:dynamic place [board]
   (let [index (first (shuffle (filter #(not (get-in board %)) (coordinates))))]
     (assoc-in board index 2)))
 
@@ -66,7 +66,7 @@
 (defn next-state [board]
   (let [cells (vec (apply concat board))]
     (cond
-      (contains? cells 2048) :won
+      (some #(= 2048 %) cells) :won
       (move-available? board) :playing
       (every? number? cells) :lost
       :else :playing)))

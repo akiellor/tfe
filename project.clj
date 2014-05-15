@@ -18,15 +18,15 @@
                         :compiler {:output-to "resources/public/app/main/main.js"
                                    :output-dir "resources/public/app"
                                    :optimizations :none
-                                   :source-map true}}]}
+                                   :source-map true}}
+                       {:id "test"
+                        :source-paths ["src" "test"]
+                        :notify-command ["phantomjs" :cljs.test/runner "target/unit-test.js"]
+                        :compiler {:output-to "target/unit-test.js"
+                                   :optimizations :whitespace
+                                   :pretty-print true}}]}
   :scss {:src "resources/scss"
          :output-directory "resources/public/css"
-         :output-extension "css"
-         ;; Other options (provided are default values)
-         ;; :auto-compile-delay 250
-         ;; :delete-output-dir true ;; -> when running lein clean it will delete the output directory if it does not contain any file
-         ;; :ignore-hooks [:clean :compile :deps] ;; -> if you use the hooks, this option allows you to remove some hooks that you don't want to run
-         ;; :gem-version "3.2.1"
-         }
+         :output-extension "css"}
   :uberjar-name "tfe-standalone.jar" 
   :profiles {:uberjar {:main tfe.main :aot :all}})
