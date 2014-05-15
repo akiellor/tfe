@@ -27,4 +27,5 @@
          ;; :ignore-hooks [:clean :compile :deps] ;; -> if you use the hooks, this option allows you to remove some hooks that you don't want to run
          ;; :gem-version "3.2.1"
          }
-  :profiles {:uberjar {:uberjar-name "tfe-standalone.jar" :main tfe.main :aot :all}})
+  :uberjar-name "tfe-standalone.jar" 
+  :profiles {:uberjar {:main tfe.main :aot :all}})
