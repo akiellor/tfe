@@ -11,7 +11,8 @@
       (app request))))
 
 (defn handler [request]
-  {:status 200})
+  {:status 302
+   :headers {"Location" "/index.html"}})
 
 (def app
   (-> handler
