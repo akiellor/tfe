@@ -23,12 +23,15 @@
                                    :source-map true}}
                        {:id "test"
                         :source-paths ["src" "test"]
-                        :notify-command ["phantomjs" :cljs.test/runner "target/unit-test.js"]
                         :compiler {:output-to "target/unit-test.js"
                                    :optimizations :whitespace
-                                   :pretty-print true}}]}
+                                   :preamble ["react/react.min.js"]
+                                   :externs ["react/externs/react.js"]
+                                   :pretty-print true}}]
+              :test-commands {"unit" ["slimerjs" :runner
+                                      "target/unit-test.js"]}}
   :scss {:src "resources/scss"
          :output-directory "resources/public/css"
          :output-extension "css"}
-  :aliases {"test" ["do" "clean," "cljsbuild" "once" "test"]}
+  :aliases {"test" ["do" "clean," "cljsbuild" "test" "unit"]}
   :uberjar-name "tfe-standalone.jar")
