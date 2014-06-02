@@ -47,5 +47,6 @@
 (defn application [app owner]
   (om/build board app))
 
-(om/root application app-state
-  {:target (.getElementById js/document "app")})
+(defn ^:export main []
+  (om/root application app-state
+           {:target (.getElementById js/document "app")}))
