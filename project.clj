@@ -11,7 +11,8 @@
                  [org.clojure/clojure "1.5.1"]
                  [org.clojure/clojurescript "0.0-2202"]
                  [om "0.5.3"]
-                 [org.clojure/core.async "0.1.278.0-76b25b-alpha"]]
+                 [org.clojure/core.async "0.1.278.0-76b25b-alpha"]
+                 [org.clojure/core.match "0.2.1"]]
   :plugins [[lein-cljsbuild "1.0.3"] [lein-haml-sass "0.2.7-SNAPSHOT"] [com.cemerick/clojurescript.test "0.2.3"]]
   :min-lein-version "2.0.0"
   :hooks [leiningen.cljsbuild leiningen.scss]
@@ -23,6 +24,7 @@
                                    :source-map true}}
                        {:id "test"
                         :source-paths ["src" "test"]
+                        :notify-command ["slimerjs" :cljs.test/runner "target/unit-test.js"]
                         :compiler {:output-to "target/unit-test.js"
                                    :optimizations :whitespace
                                    :preamble ["react/react.min.js"]
