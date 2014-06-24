@@ -24,13 +24,12 @@
                                    :source-map true}}
                        {:id "test"
                         :source-paths ["src" "test"]
-                        :notify-command ["slimerjs" :cljs.test/runner "target/unit-test.js"]
                         :compiler {:output-to "target/unit-test.js"
-                                   :optimizations :whitespace
+                                   :optimizations :simple
                                    :preamble ["react/react.min.js"]
-                                   :externs ["react/externs/react.js"]
                                    :pretty-print true}}]
-              :test-commands {"unit" ["slimerjs" :runner
+              :test-commands {"unit" ["node"
+                                      :node-runner
                                       "target/unit-test.js"]}}
   :scss {:src "resources/scss"
          :output-directory "resources/public/css"
