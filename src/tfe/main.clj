@@ -1,6 +1,7 @@
 (ns tfe.main
   (:require [org.httpkit.server :refer [run-server]]
-            [ring.middleware.resource :refer [wrap-resource]])
+            [ring.middleware.resource :refer [wrap-resource]]
+            [ring.middleware.file-info :refer [wrap-file-info]])
   (:gen-class :main true))
 
 (defn request-logging [app]
@@ -17,6 +18,7 @@
 (def app
   (-> handler
       (wrap-resource "public")
+      (wrap-file-info)
       (request-logging)))
 
 (defn -main [port]
