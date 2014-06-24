@@ -30,9 +30,9 @@
 (defn coordinates []
   (for [x (range 4) y (range 4)] [x y]))
 
-(defn ^:dynamic place [board]
+(defn place [board]
   (let [index (first (shuffle (filter #(not (get-in board %)) (coordinates))))]
-    (assoc-in board index 2)))
+    (vec (assoc-in board index 2))))
 
 (defn update [board]
   (let [new-board (pack board)]
@@ -77,7 +77,7 @@
   (let [board (:board game)
         state (:state game)]
     (assoc game
-           :board (next-board direction board)
+           :board (vec (next-board direction board))
            :state (next-state (next-board direction board)))))
 
 (defmethod next-game :won [_ game]
