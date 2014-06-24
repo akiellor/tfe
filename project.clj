@@ -13,7 +13,7 @@
                  [om "0.6.4"]
                  [org.clojure/core.async "0.1.278.0-76b25b-alpha"]
                  [org.clojure/core.match "0.2.1"]]
-  :plugins [[lein-cljsbuild "1.0.3"] [lein-haml-sass "0.2.7-SNAPSHOT"] [com.cemerick/clojurescript.test "0.2.3"]]
+  :plugins [[lein-cljsbuild "1.0.3"] [lein-haml-sass "0.2.7-SNAPSHOT"] [com.cemerick/clojurescript.test "0.3.1"]]
   :min-lein-version "2.0.0"
   :hooks [leiningen.cljsbuild leiningen.scss]
   :cljsbuild {:builds [{:id "dev"
