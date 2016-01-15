@@ -19,16 +19,19 @@
                                         (empty-row)
                                         [2 2 nil nil]]))]
                [{:board [_ _ _ [4 _ _ _]]}] true))
+
     (is (match [(next-game :left (game [(empty-row)
                                         (empty-row)
                                         (empty-row)
                                         [2 2 2 2]]))]
                [{:board [_ _ _ [4 4 _ _]]}] true))
+
     (is (match [(next-game :left (game [(empty-row)
                                         (empty-row)
                                         (empty-row)
                                         [4 2 2 2]]))]
                [{:board [_ _ _ [4 4 2 _]]}] true)))
+
   (testing "losing"
     (is (match [(next-game :right {:state :playing :board [[ 4  8 16 nil]
                                                            [16  8  4   2]
@@ -38,6 +41,7 @@
                                       [16 8 4  2]
                                       [ 2 4 8 16]
                                       [16 8 4  2]]}] true)))
+
   (testing "winning"
     (is (match [(next-game :down {:state :playing :board [[nil nil nil 1024]
                                                           [nil nil nil 1024]
