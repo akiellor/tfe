@@ -6,18 +6,22 @@
   :java-target "1.7"
   :main tfe.main
   :aot :all
-  :dependencies [[http-kit "2.1.18"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.170"]
+                 [http-kit "2.1.18"]
                  [ring/ring-core "1.2.2"]
-                 [org.clojure/clojure "1.5.1"]
-                 [org.clojure/clojurescript "0.0-2202"]
                  [om "0.6.5"]
                  [org.clojure/core.match "0.2.1"]]
-  :plugins [[lein-cljsbuild "1.0.3"]
+  :plugins [[lein-cljsbuild "1.1.1"]
             [lein-haml-sass "0.2.7-SNAPSHOT"]
-            [com.cemerick/clojurescript.test "0.3.1"]]
+            [lein-figwheel "0.5.0-3"]
+            [lein-doo "0.1.7-SNAPSHOT"]]
   :min-lein-version "2.0.0"
   :hooks [leiningen.cljsbuild leiningen.scss]
+
+  :doo {:build "test"}
   :cljsbuild {:builds [{:id "dev"
+                        :figwheel true
                         :source-paths ["src"]
                         :compiler {:output-to "resources/public/app/main/main.js"
                                    :output-dir "resources/public/app"
@@ -27,13 +31,11 @@
                         :source-paths ["src" "test"]
                         :compiler {:output-to "target/unit-test.js"
                                    :optimizations :simple
-                                   :preamble ["react/react.min.js"]
-                                   :pretty-print true}}]
-              :test-commands {"unit" ["node"
-                                      :node-runner
-                                      "target/unit-test.js"]}}
+                                   :main          tfe.runner
+
+                                   :pretty-print true}}]}
   :scss {:src "resources/scss"
          :output-directory "resources/public/css"
          :output-extension "css"}
-  :aliases {"test" ["do" "clean," "cljsbuild" "test" "unit"]}
+  :aliases {"test" ["do" "doo" "phantom" "once"]}
   :uberjar-name "tfe-standalone.jar")

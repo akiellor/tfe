@@ -48,3 +48,5 @@
 (defn ^:export main []
   (om/root application app-state
            {:target (.getElementById js/document "app")}))
+
+(main)

@@ -10,3 +10,5 @@ pom.xml.asc
 /resources/public/app
 /resources/public/css
 /.sass-cache
+/figwheel_server.log
+/out

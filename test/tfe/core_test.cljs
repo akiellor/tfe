@@ -1,9 +1,7 @@
 (ns tfe.core-test
-  (:require-macros [cemerick.cljs.test
-                    :refer (is deftest with-test run-tests testing test-var)]
-                   [cljs.core.match.macros :refer [match]])
-  (:require [cemerick.cljs.test :as t]
-            [cljs.core.match]
+  (:require-macros [cljs.core.match.macros :refer [match]])
+  (:require [cljs.core.match]
+            [cljs.test :refer-macros [deftest is testing run-tests]]
             [tfe.core :refer [next-game]]))
 
 (defn empty-row []
@@ -48,4 +46,3 @@
                                                           [nil nil nil  nil]
                                                           [nil nil nil  nil]]})]
                [{:state :won :board [_ _ _ [_ _ _ 2048]]}] true))))
-
