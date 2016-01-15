@@ -5,7 +5,8 @@ ClojureScript/OM implementation of 2048 [http://tfe.herokuapp.com](http://tfe.he
 ## Running Locally
 
 `
-$ lein run 8080
+$ lein scss once
+$ lein figwheel
 `
 
 ## Running the tests (requires node to be installed)
