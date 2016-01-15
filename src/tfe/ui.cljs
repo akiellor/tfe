@@ -1,7 +1,5 @@
 (ns tfe.ui
-  (:require-macros [cljs.core.async.macros :refer [go alt!]])
   (:require [goog.events :as events]
-            [cljs.core.async :refer [put! <! >! chan timeout]]
             [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
             [tfe.core :refer [next-game app-state]]))
